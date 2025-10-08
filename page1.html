@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Progress Blog - Page 1</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8fafc;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%239C92AC' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+            opacity: 0.3;
+        }
+        
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .logo {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.5px;
+        }
+        
+        .tagline {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+        }
+        
+        /* Main Content */
+        main {
+            padding: 3rem 0;
+        }
+        
+        .entry {
+            background: white;
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            border: 1px solid #e2e8f0;
+        }
+        
+        .entry-header {
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #f1f5f9;
+            padding-bottom: 1.5rem;
+        }
+        
+        .entry-title {
+            font-size: 1.8rem;
+            color: #1e293b;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+        
+        .entry-meta {
+            color: #64748b;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .entry-content h2 {
+            margin: 2rem 0 1rem;
+            color: #334155;
+            font-weight: 600;
+            font-size: 1.4rem;
+        }
+        
+        .entry-content p {
+            margin-bottom: 1.2rem;
+            color: #475569;
+        }
+        
+        .entry-content ul {
+            margin: 1.2rem 0 1.2rem 2rem;
+            color: #475569;
+        }
+        
+        .entry-content li {
+            margin-bottom: 0.5rem;
+            position: relative;
+        }
+        
+        .entry-content li:before {
+            content: "•";
+            color: #667eea;
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+        
+        .entry-image {
+            max-width: 100%;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border: 1px solid #e2e8f0;
+        }
+        
+        /* Code Block Styles */
+        .code-block {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            overflow-x: auto;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .code-block .comment {
+            color: #64748b;
+            font-style: italic;
+        }
+        
+        .code-block .dependency {
+            color: #fbbf24;
+        }
+        
+        .code-block .version {
+            color: #34d399;
+        }
+        
+        /* Link Styles */
+        .entry-content a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .entry-content a:hover {
+            color: #5a67d8;
+            text-decoration: underline;
+        }
+        
+        /* Navigation Buttons */
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+        }
+        
+        .nav-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+            text-decoration: none;
+        }
+        
+        .nav-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(102, 126, 234, 0.4);
+        }
+        
+        .nav-button:active {
+            transform: translateY(0);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #1e293b;
+            color: #cbd5e1;
+            text-align: center;
+            padding: 2.5rem 0;
+            margin-top: 3rem;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .social-links a {
+            color: #cbd5e1;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: #667eea;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            .entry {
+                padding: 1.5rem;
+            }
+            
+            .entry-title {
+                font-size: 1.5rem;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .nav-buttons {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .nav-button {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">Project Progress</div>
+                <div class="tagline">Tracking my journey building a local document scanner with OCR capabilities</div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <article class="entry">
+            <div class="entry-header">
+                <h1 class="entry-title">Program Structure - Page 1</h1>
+                <div class="entry-meta">
+                    <i class="far fa-calendar"></i>
+                    <span>Posted on: September 2023</span>
+                </div>
+            </div>
+            
+            <div class="entry-content">
+                <h2>Program Structure</h2>
+                <p>The idea is that I upload a structured and almost fully developed script onto Github and then just "git clone" it to the mini-PC. Below I'll put the link to the Github project, but note that it is only the first version of the project and I'll certainly have to change things about it locally on the mini-PC, so the project on Github is not functional in itself.</p>
+                
+                <p><a href="https://github.com/lirinton/document-scanner" target="_blank">https://github.com/lirinton/document-scanner</a></p>
+                
+                <p>The structure of the program is depicted in the following tree on Github:</p>
+                
+                <img src="https://i.imgur.com/a/ILvX6fC.jpeg" alt="Program structure tree" class="entry-image">
+                
+                <p>Here are the dependencies being used in the project, these are by far not the only open-source materials being used, but these are the main dependencies:</p>
+                
+                <div class="code-block">
+                    <span class="dependency">flask</span>==<span class="version">2.3.3</span><br>
+                    <span class="dependency">opencv-python</span>==<span class="version">4.8.1.78</span><br>
+                    <span class="dependency">pillow</span>==<span class="version">10.0.1</span><br>
+                    <span class="dependency">pytesseract</span>==<span class="version">0.3.10</span><br>
+                    <span class="dependency">numpy</span>==<span class="version">1.24.3</span>
+                </div>
+                
+                <p>Yesterday I went ahead and downloaded Ubuntu onto the mini-PC and installed everything and even cloned the repository onto it. It was a difficult choice between installing the server version and the desktop version, but finally I decided to go with the desktop version as it makes everything easier to access if SSH were to stop working. However, I have not yet started the implementation process.</p>
+                
+                <p>If during the process I use a different dependency that is part of the main structure of the project, then I will upload that as well to this blog. With this, in the next blog entry I will start setting up the mini-PC.</p>
+                
+                <div class="nav-buttons">
+                    <a href="index.html" class="nav-button">
+                        <i class="fas fa-arrow-left"></i> Previous Entry
+                    </a>
+                    <button class="nav-button" onclick="goToNextPage()">
+                        Next Entry <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2023 Project Progress Blog. All rights reserved.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function goToNextPage() {
+            // This will navigate to the next page when it's created
+            alert("Next page coming soon! For now, this would navigate to Page 2.");
+            // window.location.href = "page2.html"; // Uncomment this when you create page2.html
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Page 1 loaded successfully!');
+        });
+    </script>
+</body>
+</html>
