@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Progress Blog</title>
+    <style>
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #3498db;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #3498db, #2c3e50);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Main Content */
+        main {
+            padding: 3rem 0;
+        }
+        
+        .entry {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .entry-header {
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 1rem;
+        }
+        
+        .entry-title {
+            font-size: 1.8rem;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+        
+        .entry-meta {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+        
+        .entry-content h2 {
+            margin: 1.5rem 0 1rem;
+            color: #2c3e50;
+        }
+        
+        .entry-content p {
+            margin-bottom: 1rem;
+        }
+        
+        .entry-content ul {
+            margin: 1rem 0 1rem 2rem;
+        }
+        
+        .entry-image {
+            max-width: 100%;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 1rem;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0 0.75rem;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">Project Progress</div>
+                <nav>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Archive</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Document Scanner Project</h1>
+            <p>Tracking my progress building a local document scanner with OCR capabilities</p>
+        </div>
+    </section>
+
+    <main class="container">
+        <article class="entry">
+            <div class="entry-header">
+                <h1 class="entry-title">Document Scanner Project - First Entry</h1>
+                <div class="entry-meta">Posted on: August 2023</div>
+            </div>
+            
+            <div class="entry-content">
+                <p>The idea behind the project is relatively simple, it's to create my own version of "Google Lens", but instead of it being uploaded to the cloud and being processed by massive servers somewhere in the world, I want it to be processed right next to me, in an old mini-PC. It could turn out to be a daring project, yet I feel like I will also learn a lot from this idea, so I'll try to complete this plan.</p>
+                
+                <h2>How will I go about this?</h2>
+                <p>Here is a basic description:</p>
+                <p>The system runs on a mini-computer with Ubuntu, featuring a Flask web interface for easy access. Here's the technical breakdown:</p>
+                <ul>
+                    <li>Backend: Python with Flask</li>
+                    <li>OCR Engine: Tesseract (open-source)</li>
+                    <li>Hardware: Mini-PC + USB camera, probably a "box" either 3D printed or made from wood</li>
+                </ul>
+                
+                <img src="https://i.imgur.com/42BpkUM.jpeg" alt="Project concept image" class="entry-image">
+                
+                <h2>Current Progress</h2>
+                <p>During the summer I've developed a proof of concept running on a Linux Subsystem for Windows and using the built-in camera on my laptop. What is left is reprogramming the whole for the mini-PC and the USB-Camera and then streamlining the whole process for the end-user.</p>
+                
+                <p>In the next entry, I'll include a full list of all the open-source materials being used for the document scanner.</p>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Project Progress Blog. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple JavaScript for future functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Project Progress Blog loaded successfully!');
+            
+            // You can add more interactive features here later
+            // For example: comment system, search functionality, etc.
+        });
+    </script>
+</body>
+</html>
